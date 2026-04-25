@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with trial plan information",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "description": "User's email address" },
+        "signupDate": { "type": "string", "format": "timestamp", "description": "Date the user signed up" },
+        "plan": { "type": "string", "enum": ["Trial", "Pro"], "description": "User's subscription plan" }
+      },
+      "required": ["email", "signupDate", "plan"]
+    },
+    "Draft": {
+      "title": "Draft",
+      "description": "A saved script draft",
+      "type": "object",
+      "properties": {
+        "topic": { "type": "string" },
+        "platform": { "type": "string" },
+        "tone": { "type": "string" },
+        "language": { "type": "string" },
+        "script": { "type": "string" },
+        "hooks": { 
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "createdAt": { "type": "string", "format": "timestamp" }
+      },
+      "required": ["topic", "platform", "tone", "language", "script", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profile information"
+    },
+    "users/{userId}/drafts/{draftId}": {
+      "schema": "Draft",
+      "description": "User's saved drafts"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Merriweather", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  
+  --color-bg-light: #fcfcfc;
+  --color-bg-dark: #020617; /* slate-950 */
+}
+
+html, body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-light);
+  color: #0f172a;
+}
+
+body.dark {
+  background-color: var(--color-bg-dark);
+  color: #f1f5f9;
+}
+
+/* Custom Scrollbar for a polished look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+/* Minimalist Markdown styling overrides */
+.prose {
+  line-height: 1.8;
+}
+.prose p {
+  margin-bottom: 1.5em;
+}
+.prose h1, .prose h2, .prose h3 {
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+  letter-spacing: -0.025em;
+}
+.prose h1 {
+  font-size: 1.75rem;
+}
+.prose h2 {
+  font-size: 1.5rem;
+}
+.prose h3 {
+  font-size: 1.25rem;
+}
+.prose ul, .prose ol {
+  margin-bottom: 1.5em;
+}
+.prose li {
+  margin-bottom: 0.5em;
+}
+.prose strong {
+  font-weight: 600;
+  color: inherit;
+}
